@@ -10,14 +10,6 @@ VALUES
     ('2024-03-31', 'Lieldienas Cēsīs', 'Rožu laukums'),
     ('2024-04-04', 'Leļļu teātra izrāde "Gangsteromīte"', 'Koncertzāle "Cēsis"'),
     ('2024-07-19', 'Cēsu pilsētas svētki 818', 'Cēsis');
-   
-CREATE TABLE kolektivi (
-    id INT PRIMARY KEY NOT NULL,
-    kolektivi VARCHAR(80) NOT NULL,
-    apraksts VARCHAR(500) NOT NULL
-);
- 
-
 
 
 CREATE TABLE kolektivi(
