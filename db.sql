@@ -1,26 +1,32 @@
-USE ckc_kristaps_vasarajs;
-CREATE TABLE pasakumi(
-datums DATE NOT NULL,
-nosaukums VARCHAR(255) NOT NULL,
-norises_vieta VARCHAR(255) NOT NULL
-) 
+CREATE DATABASE ckc_vasarajs;
 
-INSERT INTO pasakumi (datums, nosaukums, norises_vieta)
+USE ckc_vasarajs;
+
+CREATE TABLE ckc_events (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	datetime DATETIME NOT NULL,
+	event VARCHAR(255) NOT NULL,
+	place VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE ckc_kolektivi (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	name VARCHAR(80) NOT NULL,
+	description VARCHAR(500) NOT NULL 
+);
+
+
+INSERT INTO ckc_events
+(datetime,event,place)
 VALUES
-    ('2024-03-31', 'Lieldienas Cēsīs', 'Rožu laukums'),
-    ('2024-04-04', 'Leļļu teātra izrāde "Gangsteromīte"', 'Koncertzāle "Cēsis"'),
-    ('2024-07-19', 'Cēsu pilsētas svētki 818', 'Cēsis');
+('2024-03-31 13:00:00', 'Lieldienas Cēsīs', 'Rožu laukums'),
+('2024-04-04 18:00:00', 'Leļļu teātra izrāde "Gangsteromīte"', 'Koncertzāle "Cēsis"');
+('2024-07-19 08:00:00', 'Cēsu pilsētas svētki 818', 'Cēsis');
 
-
-CREATE TABLE kolektivi(
-id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    deju_kolektivi VARCHAR(80) NOT NULL,
-    apraksts VARCHAR(500) NOT NULL
-    )
-
-    INSERT INTO kolektivi (deju_kolektivi, apraksts) 
-VALUES 
-('Cēsis', 'Pūtēju orķestris'),
-('Raitais solis', 'Tautu deju ansamblis'),
-('Vidzeme', 'Jauktais koris'),
-('Dzieti', 'Tautas vērtes kopa');
+INSERT INTO ckc_kolektivi
+(name,description)
+VALUES
+('Cēsis','Pūtēju orķestris'),
+('Raitais solis','Tautu deju ansamblis'),
+('Vidzeme','Jauktais koris'),
+('Dzieti','Tautas vērtes kopa');

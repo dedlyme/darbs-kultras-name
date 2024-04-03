@@ -1,13 +1,14 @@
 <?php
-require "database.php";
+require "Database.php";
+$config = require "config.php";
 
 
-$config = require("config.php");
-$db = new Database($config);
 
-$query = "SELECT * FROM pasakumi";
+
+$query = "SELECT * FROM ckc_events"; 
 $params = [];
-$pasakumi = $db
-          ->execute($query, $params)
-          ->fetchAll();
+$db = new Database($config);
+$events = $db->execute($query, $params)->fetchALL();
+
 require "views/index.view.php";
+//  var_dump($events);

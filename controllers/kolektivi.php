@@ -1,14 +1,16 @@
 <?php
-require "database.php";
+require "Database.php";
+$config = require "config.php";
 
 
-$config = require("config.php");
 
-$db = new Database($config);
 
-$query = "SELECT * FROM kolektivi";
+
+
+$query = "SELECT * FROM ckc_kolektivi"; 
 $params = [];
-$kolektivi = $db
-          ->execute($query, $params)
-          ->fetchAll();
+$db = new Database($config);
+$kolektivi = $db->execute($query, $params)->fetchALL();
+
 require "views/kolektivi.view.php";
+//  var_dump($events);

@@ -1,12 +1,17 @@
-<?php require "components/head.php" ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
 <?php require "components/navbar.php" ?>
-<h1>pasakumi</h1>
-<ul>
-<?php foreach($pasakumi as $pasak) { ?>
-  <li>
-    <?= htmlspecialchars($pasak["deju_kolektivi, apraksts"])?>
-    <form class="delete-form" method="POST" action="/delete"><button name="id" value="<?= $pasak["id"] ?>">Delete</button></form>
-  </li>
-<?php } ?>
-</ul>
-<?php require "components/footer.php" ?>
+<body>
+    <h1>Pasākumi Cēsīs</h1>
+    <ul>
+    <?php foreach ($events as $event) { ?>
+        <a href=<?= "/show?id=".$event["id"] ?>><li> <?= htmlspecialchars($event["datetime"]), " / ", htmlspecialchars($event["event"]), " / ", htmlspecialchars($event["place"]) ?> </li></a>
+    <?php } ?>
+    </ul>
+</body>
+</html>
